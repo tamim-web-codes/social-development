@@ -16,8 +16,9 @@ import {
     AvatarImage,
 } from "@/components/ui/avatar";
 import { Switch } from "@/components/ui/switch";
+import Link from "next/link";
 
-function LeafLogo() {
+export default function LeafLogo() {
     return (
         <svg
             aria-hidden="true"
@@ -49,12 +50,14 @@ export function Navber() {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-border bg-background ">
             <nav className="relative flex h-16 items-center px-6">
-                <div className="flex items-center gap-2">
-                    <LeafLogo />
-                    <span className="text-lg font-bold tracking-tight text-foreground">
-                        Events Platform
-                    </span>
-                </div>
+                <Link href="/">
+                    <div className="flex items-center gap-2">
+                        <LeafLogo />
+                        <span className="text-lg font-bold tracking-tight text-foreground">
+                            Events Platform
+                        </span>
+                    </div>
+                </Link>
 
                 <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 text-sm font-medium text-foreground">
                     <CalendarDays className="size-4" />
@@ -78,16 +81,9 @@ export function Navber() {
                         />
                     </div>
 
-                    <button
-                        type="button"
-                        aria-label="Notifications"
-                        className="relative p-1 text-foreground transition-colors hover:text-primary"
-                    >
-                        <Bell className="size-5" />
-                        <span className="absolute top-0.5 right-0.5 size-2 rounded-full bg-red-500" />
-                    </button>
 
                     <div className="flex items-center gap-1">
+
                         <Avatar size="default">
                             <AvatarImage
                                 src="https://i.pravatar.cc/64?img=12"
