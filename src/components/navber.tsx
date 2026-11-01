@@ -150,7 +150,7 @@ export function Navber() {
                                             </Link>
 
                                             <Link
-                                                href="/manage-events"
+                                                href="/manage-my-events"
                                                 className="flex items-center gap-2 rounded-md px-2 py-2 text-sm hover:bg-muted"
                                             >
                                                 <Settings className="h-4 w-4 text-indigo-500" />

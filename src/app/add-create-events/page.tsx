@@ -1,6 +1,7 @@
 
 'use client'
 import { toast } from "@/components/ui/toast";
+import { authClient } from "@/lib/auth-client";
 import {
     ArrowRight,
     CalendarDays,
@@ -46,28 +47,38 @@ function FieldIcon({ children }: { children: React.ReactNode }) {
 }
 
 export default function CreateEventPage() {
+    const { data: session } = authClient.useSession();
+    const user = session?.user;
+    const handlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
-    const handlesubmit = async (e: React.SubmitEvent<HTMLElement>) => {
-        e.preventDefault()
-        const formData = new FormData(e.target)
-        const eventData = Object.fromEntries(formData.entries())
+        const formData = new FormData(e.currentTarget);
+
+        const eventData = {
+            ...Object.fromEntries(formData.entries()),
+            email: user?.email,
+        };
+
         const res = await fetch('http://localhost:5000/add-create-events', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(eventData)
-        })
-        const data = await res.json()
-        toast.add({
-            title: 'Event create successfully'
-        })
-        console.log(data);
+            body: JSON.stringify(eventData),
+        });
 
-    }
+        const data = await res.json();
+
+        toast.add({
+            title: 'Event create successfully',
+        });
+
+        console.log(data);
+    };
     const today = new Date().toLocaleDateString("en-CA", {
         timeZone: "Asia/Dhaka",
     });
+
 
 
     return (
