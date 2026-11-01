@@ -20,6 +20,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Google login
+
+Set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in the server environment to enable Google login. Add `http://localhost:3000/api/auth/callback/google` as an authorized redirect URI in Google Cloud; use your deployed app URL in production.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
