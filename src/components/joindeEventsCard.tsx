@@ -3,6 +3,7 @@
 import { authClient } from '@/lib/auth-client';
 import { Heart } from 'lucide-react';
 import React from 'react';
+import { toast } from './ui/toast';
 
 const JoindeEventsCard = ({ event }) => {
 
@@ -28,7 +29,25 @@ const JoindeEventsCard = ({ event }) => {
             body: JSON.stringify(Data)
         })
         const result = await res.json();
-        console.log(result);
+        if (res.ok) {
+            toast.add({
+                type: 'success',
+                title: '🎉 You’re Part of the Event!',
+                description: 'You have successfully joined this event. Thank you for being part of the community!',
+            });
+        } else if (result.message === 'Already joined') {
+            toast.add({
+                type: 'warning',
+                title: 'Already Joined! 👋',
+                description: 'You have already joined this event. We’re excited to have you as part of the community!',
+            });
+        } else {
+            toast.add({
+                type: 'error',
+                title: '❌ Unable to Join Event',
+                description: 'Something went wrong. Please try again later.',
+            });
+        }
     }
     return (
         <div>

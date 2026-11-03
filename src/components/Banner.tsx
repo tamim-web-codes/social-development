@@ -18,7 +18,7 @@ const stats = [
 
 export function Banner() {
     return (
-        <div>
+        <div className="container mx-auto mt-10 max-w-7xl">
             <section
                 className="relative isolate overflow-hidden rounded-2xl mt-5"
                 style={{

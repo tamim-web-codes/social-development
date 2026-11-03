@@ -1,31 +1,33 @@
+
 import React from "react";
 import Link from "next/link";
 import {
     Heart,
-    Facebook,
-    Instagram,
-    Linkedin,
-    Twitter,
     MapPin,
     Mail,
     Phone,
-    ArrowUpRight,
 } from "lucide-react";
+
+import {
+    FaFacebookF,
+    FaInstagram,
+    FaLinkedinIn,
+    FaXTwitter,
+} from "react-icons/fa6";
+import LeafLogo from "./navber";
 
 const Footer = () => {
     return (
         <footer className="border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-[#101D16]">
-
             <div className="mx-auto max-w-7xl px-4 pb-10 pt-16 md:px-8">
 
-                {/* Footer Main Content */}
                 <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
 
                     {/* Brand */}
                     <div>
                         <Link href="/" className="inline-flex items-center gap-3">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-600 text-xl font-bold text-white shadow-lg shadow-green-600/20">
-                                C
+                            <div className="flex size-11 items-center justify-center rounded-xl bg-green-50 dark:bg-green-900/30">
+                                <LeafLogo />
                             </div>
 
                             <span className="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">
@@ -41,7 +43,7 @@ const Footer = () => {
 
                         {/* Social Icons */}
                         <div className="mt-6 flex items-center gap-3">
-                            {[Facebook, Instagram, Linkedin, Twitter].map(
+                            {[FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter].map(
                                 (Icon, index) => (
                                     <div
                                         key={index}
@@ -62,17 +64,17 @@ const Footer = () => {
 
                         <ul className="space-y-4 text-sm text-gray-500 dark:text-gray-400">
                             <li>
-                                <Link href="/" className="transition hover:text-green-600">
+                                <Link href="#top" className="transition hover:text-green-600">
                                     Home
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/upcoming-events" className="transition hover:text-green-600">
+                                <Link href="/explore-events" className="transition hover:text-green-600">
                                     Upcoming Events
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/create-event" className="transition hover:text-green-600">
+                                <Link href="/add-create-events" className="transition hover:text-green-600">
                                     Create Event
                                 </Link>
                             </li>
@@ -84,7 +86,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Event Categories */}
+                    {/* Explore Events */}
                     <div>
                         <h3 className="mb-6 text-base font-bold text-gray-900 dark:text-white">
                             Explore Events
@@ -136,7 +138,6 @@ const Footer = () => {
                         <Heart size={15} className="fill-red-500 text-red-500" />
                         for a better community
                     </p>
-
                 </div>
             </div>
         </footer>

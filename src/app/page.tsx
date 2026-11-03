@@ -6,10 +6,11 @@ import Subscriton from "@/components/subcribtion";
 
 export default function Home() {
     return (
-        <div className="px-4 pb-10 sm:px-6">
+        <div id="top" className="px-4 pb-10 sm:px-6">
+
             <Banner />
             <FeatureSection />
-            <RecentUpcomming/>
+            <RecentUpcomming />
             <CommunityInAction />
             <Subscriton />
         </div>

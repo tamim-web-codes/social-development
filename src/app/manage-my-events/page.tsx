@@ -32,7 +32,7 @@ const ManageMyEventContent = async () => {
 
 const ManageMyEvent = () => {
     return (
-        <div className="mt-5">
+        <div className="mt-5 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <Suspense
                 fallback={
                     <div className="flex min-h-[300px] flex-col items-center justify-center gap-4">

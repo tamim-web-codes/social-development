@@ -71,7 +71,9 @@ export default function CreateEventPage() {
         const data = await res.json();
 
         toast.add({
-            title: 'Event create successfully',
+            title: "🎉 Your Event Is Live!",
+            description: "Your event has been successfully created. Get ready to bring the community together!",
+            type: "success",
         });
         redirect('/manage-my-events');
 
