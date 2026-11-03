@@ -2,7 +2,15 @@ import { Trash2 } from 'lucide-react';
 import { redirect } from 'next/navigation';
 import React, { useState } from 'react';
 
-const DeleteExplorepage = ({ event }) => {
+type EventType = {
+    _id: string;
+};
+
+type DeleteExplorepageProps = {
+    event: EventType;
+};
+
+const DeleteExplorepage = ({ event }: DeleteExplorepageProps) => {
     const [openDelete, setOpenDelete] = useState(false);
 
     const handleDelete = async () => {

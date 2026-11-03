@@ -65,7 +65,6 @@ export function Navber() {
     useEffect(() => {
         setMounted(true);
     }, []);
-
     const isDark = mounted && theme === "dark";
 
     const { data: session } = authClient.useSession();

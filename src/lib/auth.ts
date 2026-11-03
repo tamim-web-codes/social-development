@@ -7,6 +7,9 @@ const db = client.db();
 
 
 export const auth = betterAuth({
+     plugins: [
+        jwt(), 
+    ],
   emailAndPassword: {
     enabled: true,
   },
@@ -19,5 +22,6 @@ export const auth = betterAuth({
       clientSecret:process.env.GOOGLE_SECRET_ID as string
     }
   }
+  
 
 });

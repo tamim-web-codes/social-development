@@ -4,51 +4,72 @@ import { authClient } from '@/lib/auth-client';
 import { Heart } from 'lucide-react';
 import React from 'react';
 import { toast } from './ui/toast';
+type EventType = {
+    _id: string;
+    title: string;
+    email: string;
+};
 
-const JoindeEventsCard = ({ event }) => {
+type JoindeEventsCardProps = {
+    event: EventType;
+};
+const JoindeEventsCard = ({ event }: JoindeEventsCardProps) => {
 
     const { data: session } = authClient.useSession();
     const user = session?.user;
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const Data = {
-            userId: user?.id,
-            eventId: event._id,
-            userEmail: user?.email,
-            eventTitle: event.title,
-            image: user?.image,
-            eventEmail: event.email,
-            ...event
-        }
-        const res = await fetch(`http://localhost:5000/joinde-events`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(Data)
-        })
-        const result = await res.json();
-        if (res.ok) {
-            toast.add({
-                type: 'success',
-                title: '🎉 You’re Part of the Event!',
-                description: 'You have successfully joined this event. Thank you for being part of the community!',
+        try {
+            const Data = {
+                ...event,
+                userId: user?.id,
+                eventId: event._id,
+                userEmail: user?.email,
+                eventTitle: event.title,
+                image: user?.image,
+                eventEmail: event.email,
+            };
+
+            const res = await fetch('http://localhost:5000/joinde-events', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(Data),
             });
-        } else if (result.message === 'Already joined') {
-            toast.add({
-                type: 'warning',
-                title: 'Already Joined! 👋',
-                description: 'You have already joined this event. We’re excited to have you as part of the community!',
-            });
-        } else {
+
+            const result = await res.json();
+
+            if (res.ok) {
+                toast.add({
+                    type: 'success',
+                    title: '🎉 You’re Part of the Event!',
+                    description: 'You have successfully joined this event!',
+                });
+            } else {
+                toast.add({
+                    type: 'error',
+                    title: '❌Already Joined!',
+                    description: 'You have already joined this event.',
+                });
+            }
+
+            console.log('Status:', res.status);
+            console.log('Response:', result);
+
+        } catch (error) {
+            console.error('Join Event Error:', error);
+
             toast.add({
                 type: 'error',
-                title: '❌ Unable to Join Event',
-                description: 'Something went wrong. Please try again later.',
+                title: '❌ Already Joined!',
+                description: 'You have already joined this event.',
             });
         }
     }
+
+    if (!session?.user) return null;
     return (
         <div>
             <form onSubmit={handleSubmit}>
