@@ -1,7 +1,7 @@
 
 import JoindemanageCard from '@/components/joinde-manage-card';
 import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+
 import Link from 'next/link';
 
 import {
@@ -10,6 +10,9 @@ import {
     ArrowUpRight,
     CalendarDays,
 } from 'lucide-react';
+import Head from 'next/head';
+import { headers } from 'next/headers';
+import { getTokenFromServer } from '@/lib/getTokenFromServer';
 
 type JoinedEvent = {
     _id: string;
@@ -32,6 +35,8 @@ const JoinedEvents = async () => {
 
     const user = session?.user;
 
+  const token = await getTokenFromServer();
+   
     if (!user?.email) {
         return (
             <section className="flex min-h-[70vh] items-center justify-center bg-slate-50 px-4 dark:bg-slate-950">
@@ -60,10 +65,15 @@ const JoinedEvents = async () => {
         );
     }
 
+
+
     const res = await fetch(
         `http://localhost:5000/joinde-events/${encodeURIComponent(user.email)}`,
         {
             cache: 'no-store',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
         }
     );
 

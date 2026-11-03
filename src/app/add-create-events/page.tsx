@@ -2,6 +2,7 @@
 'use client'
 import { toast } from "@/components/ui/toast";
 import { authClient } from "@/lib/auth-client";
+import { getTokenFromClient } from "@/lib/getTokenFromClient";
 import {
     ArrowRight,
     CalendarDays,
@@ -59,11 +60,12 @@ export default function CreateEventPage() {
             ...Object.fromEntries(formData.entries()),
             email: user?.email,
         };
-
+        const token = await getTokenFromClient();
         const res = await fetch('http://localhost:5000/add-create-events', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(eventData),
         });
