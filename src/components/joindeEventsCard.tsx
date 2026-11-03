@@ -4,6 +4,7 @@ import { authClient } from '@/lib/auth-client';
 import { Heart } from 'lucide-react';
 import React from 'react';
 import { toast } from './ui/toast';
+import { getTokenFromClient } from '@/lib/getTokenFromClient';
 type EventType = {
     _id: string;
     title: string;
@@ -30,11 +31,12 @@ const JoindeEventsCard = ({ event }: JoindeEventsCardProps) => {
                 image: user?.image,
                 eventEmail: event.email,
             };
-
-            const res = await fetch('http://localhost:5000/joinde-events', {
+            const token = await getTokenFromClient();
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/joined-events`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(Data),
             });

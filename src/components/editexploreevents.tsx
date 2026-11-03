@@ -60,7 +60,7 @@ const EditexploreEvents = ({ event }: { event: EventData }) => {
     const handleEdit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const res = await fetch(`http://localhost:5000/manage-my-events/${event._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/manage-my-events/${event._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

@@ -45,7 +45,7 @@ const ExploreEvent = () => {
         const fetchEvents = async () => {
             try {
                 const res = await fetch(
-                    "http://localhost:5000/explore-event",
+                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/explore-event`,
                     {
                         method: "GET",
                     }

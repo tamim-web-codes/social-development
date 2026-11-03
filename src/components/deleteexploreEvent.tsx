@@ -15,7 +15,7 @@ const DeleteExplorepage = ({ event }: DeleteExplorepageProps) => {
 
     const handleDelete = async () => {
 
-        const res = await fetch(`http://localhost:5000/manage-my-events/${event._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/manage-my-events/${event._id}`, {
             method: 'DELETE'
         })
         await res.json()

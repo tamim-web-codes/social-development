@@ -61,11 +61,11 @@ export default function CreateEventPage() {
             email: user?.email,
         };
         const token = await getTokenFromClient();
-        const res = await fetch('http://localhost:5000/add-create-events', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/add-create-events`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(eventData),
         });

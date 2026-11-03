@@ -1,40 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌱 Social Development Events Platform
 
-## Getting Started
+A community-driven platform that brings people together through meaningful social development activities. Users can discover upcoming events, create their own events, and participate in activities that make a positive difference in society.
 
-First, run the development server:
+### 🔗 Live Website
+[Visit Live Website](YOUR_LIVE_SITE_URL)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### ✨ Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **User Authentication:** Register and log in securely using email and password or Google authentication.
+- **Explore Events:** Discover upcoming social development events and explore different community activities.
+- **Create Events:** Create and publish events with details such as title, description, category, location, date, and image.
+- **Join Events:** Join events and become part of meaningful community initiatives.
+- **Manage Events:** View, update, and delete events created by your account.
+- **Joined Events:** Keep track of all the events you have joined in one place.
+- **Secure Access:** Protected routes and JWT-based API authentication help keep user data secure.
+- **Responsive Design:** A clean and user-friendly interface that works smoothly on desktop, tablet, and mobile devices.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🛠️ Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Authentication:** Better Auth, JWT
+- **Icons:** Lucide React
 
-## Google login
+### 🎯 Project Goal
 
-Set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in the server environment to enable Google login. Add `http://localhost:3000/api/auth/callback/google` as an authorized redirect URI in Google Cloud; use your deployed app URL in production.
+The goal of this platform is to encourage people to participate in social development activities, build stronger communities, and create positive changes through collaboration.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Developed by Tamim Reza ❤️**

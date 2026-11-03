@@ -34,7 +34,7 @@ const EventDetails = async ({
     const { eventId } = await params;
 
     const res = await fetch(
-        `http://localhost:5000/explore-event/${eventId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/explore-event/${eventId}`,
         {
             method: "GET",
             cache: "no-store",

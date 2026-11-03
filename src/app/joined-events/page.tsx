@@ -10,7 +10,7 @@ import {
     ArrowUpRight,
     CalendarDays,
 } from 'lucide-react';
-import Head from 'next/head';
+
 import { headers } from 'next/headers';
 import { getTokenFromServer } from '@/lib/getTokenFromServer';
 
@@ -35,8 +35,8 @@ const JoinedEvents = async () => {
 
     const user = session?.user;
 
-  const token = await getTokenFromServer();
-   
+
+
     if (!user?.email) {
         return (
             <section className="flex min-h-[70vh] items-center justify-center bg-slate-50 px-4 dark:bg-slate-950">
@@ -65,10 +65,10 @@ const JoinedEvents = async () => {
         );
     }
 
-
+    const token = await getTokenFromServer();
 
     const res = await fetch(
-        `http://localhost:5000/joinde-events/${encodeURIComponent(user.email)}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/joinde-events/${user.email}`,
         {
             cache: 'no-store',
             headers: {

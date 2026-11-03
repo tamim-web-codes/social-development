@@ -23,7 +23,7 @@ const RecentUpcomming = async () => {
 
     try {
         const res = await fetch(
-            "http://localhost:5000/recent-upcoming-events",
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/recent-upcoming-events`,
             {
                 cache: "no-store",
             }

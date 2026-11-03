@@ -14,6 +14,7 @@ import {
     FaLinkedinIn,
     FaXTwitter,
 } from "react-icons/fa6";
+
 import LeafLogo from "./navber";
 
 const Footer = () => {
@@ -130,7 +131,7 @@ const Footer = () => {
                 <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-7 text-center dark:border-gray-800 sm:flex-row sm:text-left">
 
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                        © {new Date().getFullYear()} CommunityConnect. All rights reserved.
+                        © 2026 CommunityConnect. All rights reserved.
                     </p>
 
                     <p className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
