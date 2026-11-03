@@ -13,6 +13,7 @@ import {
     MapPin,
     Type,
 } from "lucide-react";
+import { redirect } from "next/navigation";
 
 
 const fieldClassName =
@@ -72,6 +73,7 @@ export default function CreateEventPage() {
         toast.add({
             title: 'Event create successfully',
         });
+        redirect('/manage-my-events');
 
         console.log(data);
     };
