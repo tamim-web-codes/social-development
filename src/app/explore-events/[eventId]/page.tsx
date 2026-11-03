@@ -14,7 +14,6 @@ import {
     Sparkles,
 } from "lucide-react";
 import JoindeEventsCard from "@/components/joindeEventsCard";
-
 type Event = {
     _id: string;
     title: string;
@@ -23,6 +22,7 @@ type Event = {
     thumbnailUrl: string;
     location: string;
     date: string;
+    email: string;
     joinedCount?: number;
 };
 
