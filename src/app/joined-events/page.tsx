@@ -47,18 +47,18 @@ const JoinedEvents = async () => {
                     </div>
 
                     <h2 className="mt-5 text-2xl font-bold text-slate-900 dark:text-white">
-                        Please Login First
+                        No Joined Events Yet!
                     </h2>
 
-                    <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-                        Login to see your joined events.
+                    <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                        You haven't joined any events yet. Explore upcoming events and join activities that inspire you to make a difference in your community.
                     </p>
 
                     <Link
-                        href="/signin"
+                        href="/explore-events"
                         className="mt-6 inline-flex rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-emerald-700"
                     >
-                        Login Now
+                        Explore Events
                     </Link>
                 </div>
             </section>
