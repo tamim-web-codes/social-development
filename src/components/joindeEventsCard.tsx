@@ -21,7 +21,7 @@ const JoindeEventsCard = ({ event }: JoindeEventsCardProps) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        try {
+      
             const Data = {
                 ...event,
                 userId: user?.id,
@@ -32,7 +32,7 @@ const JoindeEventsCard = ({ event }: JoindeEventsCardProps) => {
                 eventEmail: event.email,
             };
             const token = await getTokenFromClient();
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/joined-events`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/joinde-events`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const JoindeEventsCard = ({ event }: JoindeEventsCardProps) => {
                 body: JSON.stringify(Data),
             });
 
-            const result = await res.json();
+            await res.json();
 
             if (res.ok) {
                 toast.add({
@@ -56,19 +56,7 @@ const JoindeEventsCard = ({ event }: JoindeEventsCardProps) => {
                     description: 'You have already joined this event.',
                 });
             }
-
-            console.log('Status:', res.status);
-            console.log('Response:', result);
-
-        } catch (error) {
-            console.error('Join Event Error:', error);
-
-            toast.add({
-                type: 'error',
-                title: '❌ Already Joined!',
-                description: 'You have already joined this event.',
-            });
-        }
+          
     }
 
     if (!session?.user) return null;
